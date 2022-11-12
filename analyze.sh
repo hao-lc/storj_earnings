@@ -4,6 +4,7 @@
 
 cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 
+git config pull.ff only
 git pull
 
 for d in /hao/apps/storj/h1storj*; do
