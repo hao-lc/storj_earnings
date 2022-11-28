@@ -7,7 +7,9 @@ cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 git config pull.ff only
 git pull
 
-for d in /hao/apps/storj/h1storj*; do
+: ${PREFIX:=/hao/apps/storj/h1storj}
+
+for d in ${PREFIX}*; do
 	echo "DIR = $d"
 	rsync -a $d/storage/storage/{*.db,*.db-*} copied_db/
 	./earnings.py copied_db/ "$@"
