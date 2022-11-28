@@ -13,7 +13,11 @@ fi
 
 for d in ${DIR}; do
 	echo "DIR = $d"
-	rsync -a $d/storage/storage/{*.db,*.db-*} copied_db/
+	subdir="$d/storage/storage/"
+	if ! [[ -d "$SUBDIR" ]]; then
+		subdir="$d"
+	fi
+	rsync -a $subdir/{*.db,*.db-*} copied_db/
 	./earnings.py copied_db/ "$@"
 	rm -r copied_db/
 done
