@@ -7,7 +7,9 @@ cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 git config pull.ff only
 git pull
 
-: ${DIR:=/hao/apps/storj/h1storj*}
+if [ -z "${DIR}" ]; then 
+    DIR="/hao/apps/storj/h1storj*"
+fi
 
 for d in ${DIR}; do
 	echo "DIR = $d"
