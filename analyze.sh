@@ -13,7 +13,7 @@ fi
 
 for d in ${DIR}; do
 	subdir="$d/storage/storage/"
-	if ! [[ -d "$SUBDIR" ]]; then
+	if ! [[ -d "$subdir" ]]; then
 		subdir="$d"
 	fi
 	echo "DIR = $subdir"
